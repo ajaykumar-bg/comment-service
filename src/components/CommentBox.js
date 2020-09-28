@@ -21,7 +21,7 @@ class CommentBox extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.saveComment({
+		this.props.postComment({
 			avatar: 'https://picsum.photos/id/237/200/300',
 			author: 'Ajay',
 			content: this.state.content,

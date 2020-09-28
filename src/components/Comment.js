@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import ReplyCommentBox from './ReplyCommentBox';
-import CommentList from './CommentList';
+// import CommentList from './CommentList';
 
 function Comment({ data, replyComments }) {
 	const [replyBoxVisibility, setReplyBoxVisibility] = useState(false);
@@ -37,8 +37,10 @@ function Comment({ data, replyComments }) {
 	);
 }
 
-const mapStateToProps = (state) => ({
-	replyComments: state.comments.filter((comment) => comment.commentId === 1),
-});
+// const mapStateToProps = (state) => ({
+// 	replyComments: state.comments.filter((comment) => comment.commentId === 1),
+// });
 
-export default connect(mapStateToProps)(Comment);
+// export default connect(mapStateToProps)(Comment);
+
+export default Comment;

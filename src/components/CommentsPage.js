@@ -12,7 +12,7 @@ const CommentsPage = ({ comments }) => (
 );
 
 const mapStateToProps = (state) => ({
-	comments: state.comments,
+	comments: state.commentsData.comments,
 });
 
 export default connect(mapStateToProps)(CommentsPage);

@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import commentReducer from './comments';
 
 const rootReducer = combineReducers({
-	comments: commentReducer,
+	commentsData: commentReducer,
 });
 
 export default rootReducer;
