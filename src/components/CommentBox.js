@@ -22,9 +22,10 @@ class CommentBox extends Component {
 	handleSubmit(event) {
 		event.preventDefault();
 		this.props.saveComment({
-			user: 'user_name',
-			commentText: this.state.comment,
-			timeStamp: new Date(),
+			avatar: 'https://picsum.photos/id/237/200/300',
+			author: 'user_name',
+			text: this.state.comment,
+			datetime: new Date(),
 		});
 		this.setState({
 			comment: '',

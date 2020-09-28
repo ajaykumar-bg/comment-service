@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Container } from 'semantic-ui-react';
 
 import CommentBox from './components/CommentBox';
 import CommentList from './components/CommentList';
@@ -7,9 +8,10 @@ import CommentList from './components/CommentList';
 function App() {
 	return (
 		<div className='App'>
-			<h2>Comments</h2>
-			<CommentBox />
-			<CommentList />
+			<Container>
+				<CommentBox />
+				<CommentList />
+			</Container>
 		</div>
 	);
 }
