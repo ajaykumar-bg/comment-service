@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './index.css';
 import App from './App';
@@ -9,14 +10,21 @@ import * as serviceWorker from './serviceWorker';
 
 import rootReducer from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+//setting up store with middleware and redux dev tools viewers
+const store = createStore(
+	rootReducer,
+	composeWithDevTools(
+		applyMiddleware()
+		// other store enhancers if any
+	)
+);
 
 ReactDOM.render(
-	<Provider store={createStoreWithMiddleware(rootReducer)}>
-		<React.StrictMode>
+	<React.StrictMode>
+		<Provider store={store}>
 			<App />
-		</React.StrictMode>
-	</Provider>,
+		</Provider>
+	</React.StrictMode>,
 	document.getElementById('root')
 );
 
