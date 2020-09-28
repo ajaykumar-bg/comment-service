@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import moment from 'moment';
 
 import ReplyCommentBox from './ReplyCommentBox';
@@ -29,7 +29,7 @@ function Comment({ data, replyComments }) {
 					</a>
 				</div>
 				{/* {replyComments && replyComments.length > 0 ? (
-					<CommentList comments={replyComments} />
+					<CommentList parentId={id} comments={replyComments} />
 				) : null} */}
 			</div>
 			{replyBoxVisibility ? <ReplyCommentBox /> : null}
