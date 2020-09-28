@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-class CommentBox extends Component {
+class ReplyCommentBox extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -26,28 +26,29 @@ class CommentBox extends Component {
 			author: 'Ajay',
 			content: this.state.content,
 			datetime: new Date(),
+			commentId: 0,
 		});
 		this.setState({
-			content: '',
+			comment: '',
 		});
 	}
 
 	render() {
 		return (
-			<form className='ui comment form' onSubmit={this.handleSubmit}>
+			<form className='ui reply form' onSubmit={this.handleSubmit}>
 				<div className='field'>
 					<textarea
-						rows='3'
+						rows='1'
 						value={this.state.content}
 						onChange={this.handleChange}
 					></textarea>
 				</div>
 				<button type='submit' className='ui icon primary left labeled button'>
-					<i aria-hidden='true' className='edit icon'></i>Post a new Comment
+					<i aria-hidden='true' className='edit icon'></i>Add reply
 				</button>
 			</form>
 		);
 	}
 }
 
-export default connect(null, actions)(CommentBox);
+export default connect(null, actions)(ReplyCommentBox);

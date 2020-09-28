@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import CommentBox from './CommentBox';
 import CommentList from './CommentList';
 
-const CommentsPage = () => (
+const CommentsPage = ({ comments }) => (
 	<div>
 		<CommentBox />
-		<CommentList />
+		<CommentList comments={comments} />
 	</div>
 );
 

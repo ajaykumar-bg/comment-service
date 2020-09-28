@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment';
 
-function Comment({ details }) {
-	const { author, avatar, content, datetime } = details;
+import ReplyCommentBox from './ReplyCommentBox';
+import CommentList from './CommentList';
+
+function Comment({ data, replyComments }) {
+	const [replyBoxVisibility, setReplyBoxVisibility] = useState(false);
+	const { id, author, avatar, content, datetime } = data;
+
 	return (
 		<div className='comment'>
 			<div className='avatar'>
@@ -11,20 +17,28 @@ function Comment({ details }) {
 			<div className='content'>
 				<a className='author'>{author}</a>
 				<div className='metadata'>
-					<div>
-						{moment(datetime).fromNow()}
-						{/* Today at 5:42PM */}
-					</div>
+					<div>{moment(datetime).fromNow()}</div>
 				</div>
 				<div className='text'>{content}</div>
 				<div className='actions'>
-					<a className=''>Reply</a>
+					<a
+						className=''
+						onClick={() => setReplyBoxVisibility(!replyBoxVisibility)}
+					>
+						Reply
+					</a>
 				</div>
+				{/* {replyComments && replyComments.length > 0 ? (
+					<CommentList comments={replyComments} />
+				) : null} */}
 			</div>
-			<h5>Show Reply Comments here....</h5>
-			{/* <Comment /> */}
+			{replyBoxVisibility ? <ReplyCommentBox /> : null}
 		</div>
 	);
 }
 
-export default Comment;
+const mapStateToProps = (state) => ({
+	replyComments: state.comments.filter((comment) => comment.commentId === 1),
+});
+
+export default connect(mapStateToProps)(Comment);
