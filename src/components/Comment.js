@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import moment from 'moment';
 
 import ReplyCommentBox from './ReplyCommentBox';
 // import CommentList from './CommentList';
 
-function Comment({ data, replyComments }) {
+function Comment({ data, replyComments, userData }) {
 	const [replyBoxVisibility, setReplyBoxVisibility] = useState(false);
-	const { id, author, avatar, content, datetime } = data;
+	const { id, content, datetime } = data;
 
 	return (
 		<div className='comment'>
 			<div className='avatar'>
-				<img alt='img' src={avatar} />
+				<img alt='img' src={userData.avatar} />
 			</div>
 			<div className='content'>
-				<a className='author'>{author}</a>
+				<a className='author'>{userData.username}</a>
 				<div className='metadata'>
 					<div>{moment(datetime).fromNow()}</div>
 				</div>
@@ -37,10 +37,9 @@ function Comment({ data, replyComments }) {
 	);
 }
 
-// const mapStateToProps = (state) => ({
-// 	replyComments: state.comments.filter((comment) => comment.commentId === 1),
-// });
+const mapStateToProps = (state) => ({
+	userData: state.userData,
+	// replyComments: state.comments.filter((comment) => comment.commentId === 1),
+});
 
-// export default connect(mapStateToProps)(Comment);
-
-export default Comment;
+export default connect(mapStateToProps)(Comment);

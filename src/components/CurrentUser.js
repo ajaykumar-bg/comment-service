@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-class CommentBox extends Component {
+class CurrentUser extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			content: '',
+			username: this.props.userData.username,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,37 +15,35 @@ class CommentBox extends Component {
 
 	handleChange(event) {
 		this.setState({
-			content: event.target.value,
+			username: event.target.value,
 		});
 	}
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.postComment({
-			content: this.state.content,
-			datetime: new Date(),
-		});
-		this.setState({
-			content: '',
-		});
+		this.props.setCurrentUser(this.state.username);
 	}
 
 	render() {
 		return (
 			<form className='ui comment form' onSubmit={this.handleSubmit}>
 				<div className='field'>
-					<textarea
-						rows='3'
-						value={this.state.content}
+					<input
+						type='text'
+						value={this.state.username}
 						onChange={this.handleChange}
-					></textarea>
+					/>
 				</div>
 				<button type='submit' className='ui icon primary left labeled button'>
-					<i aria-hidden='true' className='edit icon'></i>Post a new Comment
+					<i aria-hidden='true' className='edit icon'></i>Set Current User
 				</button>
 			</form>
 		);
 	}
 }
 
-export default connect(null, actions)(CommentBox);
+const mapStateToProps = (state) => ({
+	userData: state.userData,
+});
+
+export default connect(mapStateToProps, actions)(CurrentUser);

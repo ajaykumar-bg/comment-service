@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
+
+import CurrentUser from './CurrentUser';
 import CommentBox from './CommentBox';
 import CommentList from './CommentList';
 
@@ -12,6 +14,7 @@ export class CommentsPage extends Component {
 	render() {
 		return (
 			<div>
+				<CurrentUser />
 				<CommentBox />
 				<CommentList comments={this.props.comments} />
 			</div>
