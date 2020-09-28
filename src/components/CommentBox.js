@@ -23,8 +23,8 @@ class CommentBox extends Component {
 		event.preventDefault();
 		this.props.saveComment({
 			avatar: 'https://picsum.photos/id/237/200/300',
-			author: 'user_name',
-			text: this.state.comment,
+			author: 'Ajay',
+			content: this.state.comment,
 			datetime: new Date(),
 		});
 		this.setState({

@@ -1,1 +1,3 @@
-export const SAVE_COMMENT = 'save_comment';
+export const SAVE_COMMENT = 'SAVE COMMENT';
+export const SAVE_COMMENT_SUCCESS = 'SAVE COMMENT_SUCCESS';
+export const SAVE_COMMENT_FAILED = 'SAVE COMMENT_FAILED';

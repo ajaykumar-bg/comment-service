@@ -1,78 +1,25 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
 import { connect } from 'react-redux';
-import { Button, Comment, Form, Header } from 'semantic-ui-react';
+import Comment from './Comment';
 
-const CommentList = () => (
-	<Comment.Group>
-		<Header as='h3' dividing>
-			Comments
-		</Header>
+const CommentList = (props) => (
+	<div className='ui comments'>
+		<h3 className='ui dividing header'>Comments</h3>
+		{props.comments.map((comment) => {
+			return <Comment key={uuidv4()} details={comment} />;
+		})}
 
-		<Comment>
-			<Comment.Avatar src='https://picsum.photos/id/237/200/300' />
-			<Comment.Content>
-				<Comment.Author as='a'>Matt</Comment.Author>
-				<Comment.Metadata>
-					<div>Today at 5:42PM</div>
-				</Comment.Metadata>
-				<Comment.Text>How artistic!</Comment.Text>
-				<Comment.Actions>
-					<Comment.Action>Reply</Comment.Action>
-				</Comment.Actions>
-			</Comment.Content>
-		</Comment>
-
-		<Comment>
-			<Comment.Avatar src='https://picsum.photos/id/237/200/300' />
-			<Comment.Content>
-				<Comment.Author as='a'>Elliot Fu</Comment.Author>
-				<Comment.Metadata>
-					<div>Yesterday at 12:30AM</div>
-				</Comment.Metadata>
-				<Comment.Text>
-					<p>This has been very useful for my research. Thanks as well!</p>
-				</Comment.Text>
-				<Comment.Actions>
-					<Comment.Action>Reply</Comment.Action>
-				</Comment.Actions>
-			</Comment.Content>
-			<Comment.Group>
-				<Comment>
-					<Comment.Avatar src='https://picsum.photos/id/237/200/300' />
-					<Comment.Content>
-						<Comment.Author as='a'>Jenny Hess</Comment.Author>
-						<Comment.Metadata>
-							<div>Just now</div>
-						</Comment.Metadata>
-						<Comment.Text>Elliot you are always so right :)</Comment.Text>
-						<Comment.Actions>
-							<Comment.Action>Reply</Comment.Action>
-						</Comment.Actions>
-					</Comment.Content>
-				</Comment>
-			</Comment.Group>
-		</Comment>
-
-		<Comment>
-			<Comment.Avatar src='https://picsum.photos/id/237/200/300' />
-			<Comment.Content>
-				<Comment.Author as='a'>Joe Henderson</Comment.Author>
-				<Comment.Metadata>
-					<div>5 days ago</div>
-				</Comment.Metadata>
-				<Comment.Text>Dude, this is awesome. Thanks so much</Comment.Text>
-				<Comment.Actions>
-					<Comment.Action>Reply</Comment.Action>
-				</Comment.Actions>
-			</Comment.Content>
-		</Comment>
-
-		<Form reply>
-			<Form.TextArea />
-			<Button content='Add Reply' labelPosition='left' icon='edit' primary />
-		</Form>
-	</Comment.Group>
+		<form className='ui reply form'>
+			<div className='field'>
+				<textarea rows='3'></textarea>
+			</div>
+			<button className='ui icon primary left labeled button'>
+				<i aria-hidden='true' className='edit icon'></i>Add Reply
+			</button>
+		</form>
+	</div>
 );
 
 // const CommentList = (props) => {
