@@ -21,7 +21,11 @@ class CommentBox extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.saveComment(this.state.comment);
+		this.props.saveComment({
+			user: 'user_name',
+			commentText: this.state.comment,
+			timeStamp: new Date(),
+		});
 		this.setState({
 			comment: '',
 		});
