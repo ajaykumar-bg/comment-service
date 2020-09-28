@@ -26,17 +26,20 @@ class CurrentUser extends Component {
 
 	render() {
 		return (
-			<form className='ui comment form' onSubmit={this.handleSubmit}>
-				<div className='field'>
+			<form onSubmit={this.handleSubmit}>
+				<div className='ui icon input'>
 					<input
 						type='text'
+						placeholder='Set Username...'
 						value={this.state.username}
 						onChange={this.handleChange}
 					/>
+					<i
+						aria-hidden='true'
+						className='sign-in circular inverted link icon'
+						onClick={this.handleSubmit}
+					></i>
 				</div>
-				<button type='submit' className='ui icon primary left labeled button'>
-					<i aria-hidden='true' className='edit icon'></i>Set Current User
-				</button>
 			</form>
 		);
 	}
