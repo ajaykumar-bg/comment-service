@@ -38,6 +38,10 @@ header {
 	height: 40px;
 }
 
+.text-center {
+	text-align: center;
+}
+
 .ui.comments .comment .actions button {
 	cursor: pointer;
 	display: inline-block;
