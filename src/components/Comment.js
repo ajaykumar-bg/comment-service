@@ -16,7 +16,7 @@ function Comment({ data, replyComments, userData }) {
 				<img alt='img' src={userData.avatar} />
 			</div>
 			<div className='content'>
-				<lable className='author'>{userData.username}</lable>
+				<label className='author'>{userData.username}</label>
 				<div className='metadata'>
 					<div>{moment(datetime).fromNow()}</div>
 				</div>
@@ -25,16 +25,16 @@ function Comment({ data, replyComments, userData }) {
 					{replyComments.length > 0 ? (
 						<span>
 							<button
-								class='ui icon button'
+								className='ui icon button'
 								onClick={() => setReplyCommentsVisibility(false)}
 							>
-								<i aria-hidden='true' class='angle up icon'></i>
+								<i aria-hidden='true' className='angle up icon'></i>
 							</button>
 							<button
-								class='ui icon button'
+								className='ui icon button'
 								onClick={() => setReplyCommentsVisibility(true)}
 							>
-								<i aria-hidden='true' class='angle down icon'></i>
+								<i aria-hidden='true' className='angle down icon'></i>
 							</button>
 						</span>
 					) : null}
