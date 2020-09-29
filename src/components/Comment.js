@@ -22,13 +22,18 @@ function Comment({ data, replyComments, userData }) {
 				</div>
 				<div className='text'>{content}</div>
 				<div className='actions'>
-					<a
-						className=''
-						onClick={() => setReplyCommentsVisibility(!replyCommentsVisibility)}
-					>
-						<span>{replyCommentsVisibility ? 'Hide' : 'Show'}</span> Reply
-						Comments
-					</a>
+					{replyComments.length > 0 ? (
+						<a
+							className=''
+							onClick={() =>
+								setReplyCommentsVisibility(!replyCommentsVisibility)
+							}
+						>
+							<span>{replyCommentsVisibility ? 'Hide' : 'Show'}</span> Comments(
+							{replyComments.length})
+						</a>
+					) : null}
+
 					<a
 						className=''
 						onClick={() => setReplyBoxVisibility(!replyBoxVisibility)}
@@ -36,7 +41,9 @@ function Comment({ data, replyComments, userData }) {
 						Reply
 					</a>
 				</div>
-				{replyComments && replyComments.length > 0 ? (
+				{replyCommentsVisibility &&
+				replyComments &&
+				replyComments.length > 0 ? (
 					<CommentList parentId={id} comments={replyComments} />
 				) : null}
 			</div>
