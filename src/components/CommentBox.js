@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
+
 import * as actions from '../actions';
 
 class CommentBox extends Component {
@@ -21,14 +23,18 @@ class CommentBox extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.postComment({
-			content: this.state.content,
-			datetime: new Date(),
-			commentId: 0,
-		});
-		this.setState({
-			content: '',
-		});
+		if (this.state.content && this.state.content !== '') {
+			this.props.postComment({
+				content: this.state.content,
+				datetime: new Date(),
+				commentId: 0,
+			});
+			this.setState({
+				content: '',
+			});
+		} else {
+			toast.error('Please add some text to comment.');
+		}
 	}
 
 	render() {
