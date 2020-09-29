@@ -51,8 +51,8 @@ function Comment({ data, replyComments, userData }) {
 				replyComments.length > 0 ? (
 					<CommentList parentId={id} comments={replyComments} />
 				) : null}
+				{replyBoxVisibility ? <ReplyCommentBox parentCommentId={id} /> : null}
 			</div>
-			{replyBoxVisibility ? <ReplyCommentBox parentCommentId={id} /> : null}
 		</div>
 	);
 }

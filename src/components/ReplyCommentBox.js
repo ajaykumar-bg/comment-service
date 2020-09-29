@@ -41,11 +41,11 @@ class ReplyCommentBox extends Component {
 		return (
 			<form className='ui reply form' onSubmit={this.handleSubmit}>
 				<div className='field'>
-					<textarea
-						rows='1'
+					<input
+						type='text'
 						value={this.state.content}
 						onChange={this.handleChange}
-					></textarea>
+					/>
 				</div>
 				<button type='submit' className='ui icon primary left labeled button'>
 					<i aria-hidden='true' className='edit icon'></i>Add reply
