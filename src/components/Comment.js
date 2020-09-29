@@ -16,21 +16,27 @@ function Comment({ data, replyComments, userData }) {
 				<img alt='img' src={userData.avatar} />
 			</div>
 			<div className='content'>
-				<a className='author'>{userData.username}</a>
+				<lable className='author'>{userData.username}</lable>
 				<div className='metadata'>
 					<div>{moment(datetime).fromNow()}</div>
 				</div>
 				<div className='text'>{content}</div>
 				<div className='actions'>
 					{replyComments.length > 0 ? (
-						<button
-							className='ui button'
-							onClick={() =>
-								setReplyCommentsVisibility(!replyCommentsVisibility)
-							}
-						>
-							<span>{replyCommentsVisibility ? 'Hide' : 'Show'}</span> Comments
-						</button>
+						<span>
+							<button
+								class='ui icon button'
+								onClick={() => setReplyCommentsVisibility(false)}
+							>
+								<i aria-hidden='true' class='angle up icon'></i>
+							</button>
+							<button
+								class='ui icon button'
+								onClick={() => setReplyCommentsVisibility(true)}
+							>
+								<i aria-hidden='true' class='angle down icon'></i>
+							</button>
+						</span>
 					) : null}
 
 					<button
