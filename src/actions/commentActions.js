@@ -140,7 +140,7 @@ export function postReplyComment(comment) {
 	return function (dispatch, getState) {
 		dispatch(saveReplyComment(comment));
 		return commentApi
-			.saveReplyComment()
+			.saveReplyComment(comment)
 			.then((result) => {
 				dispatch(saveReplyCommentSuccess(result));
 			})

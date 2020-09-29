@@ -32,7 +32,7 @@ function Comment({ data, replyComments, userData }) {
 					<CommentList parentId={id} comments={replyComments} />
 				) : null} */}
 			</div>
-			{replyBoxVisibility ? <ReplyCommentBox /> : null}
+			{replyBoxVisibility ? <ReplyCommentBox parentCommentId={id} /> : null}
 		</div>
 	);
 }

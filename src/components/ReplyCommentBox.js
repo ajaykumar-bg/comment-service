@@ -21,15 +21,13 @@ class ReplyCommentBox extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.saveComment({
-			avatar: 'https://picsum.photos/id/237/200/300',
-			author: 'Ajay',
+		this.props.postReplyComment({
 			content: this.state.content,
 			datetime: new Date(),
-			commentId: 0,
+			commentId: this.props.parentCommentId,
 		});
 		this.setState({
-			comment: '',
+			content: '',
 		});
 	}
 

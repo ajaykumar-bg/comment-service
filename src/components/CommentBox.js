@@ -24,6 +24,7 @@ class CommentBox extends Component {
 		this.props.postComment({
 			content: this.state.content,
 			datetime: new Date(),
+			commentId: 0,
 		});
 		this.setState({
 			content: '',
