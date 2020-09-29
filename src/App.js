@@ -4,16 +4,19 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 import CommentsPage from './components/CommentsPage';
 
 function App() {
 	return (
-		<div className='App'>
-			<div className='ui container'>
-				<br />
-				<h2 className='ui header'>Comment as a Service</h2>
+		<div>
+			<Header />
+			<main>
 				<CommentsPage />
-			</div>
+			</main>
+			<Footer />
 			<ToastContainer autoClose={3000} hideProgressBar />
 		</div>
 	);
