@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import ReplyCommentBox from './ReplyCommentBox';
-// import CommentList from './CommentList';
+import CommentList from './CommentList';
 
 function Comment({ data, replyComments, userData }) {
+	const [replyCommentsVisibility, setReplyCommentsVisibility] = useState(false);
 	const [replyBoxVisibility, setReplyBoxVisibility] = useState(false);
 	const { id, content, datetime } = data;
 
@@ -23,23 +24,35 @@ function Comment({ data, replyComments, userData }) {
 				<div className='actions'>
 					<a
 						className=''
+						onClick={() => setReplyCommentsVisibility(!replyCommentsVisibility)}
+					>
+						<span>{replyCommentsVisibility ? 'Hide' : 'Show'}</span> Reply
+						Comments
+					</a>
+					<a
+						className=''
 						onClick={() => setReplyBoxVisibility(!replyBoxVisibility)}
 					>
 						Reply
 					</a>
 				</div>
-				{/* {replyComments && replyComments.length > 0 ? (
+				{replyComments && replyComments.length > 0 ? (
 					<CommentList parentId={id} comments={replyComments} />
-				) : null} */}
+				) : null}
 			</div>
 			{replyBoxVisibility ? <ReplyCommentBox parentCommentId={id} /> : null}
 		</div>
 	);
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
 	userData: state.userData,
-	// replyComments: state.comments.filter((comment) => comment.commentId === 1),
+	replyComments:
+		state.commentsData.comments && state.commentsData.comments.length > 0
+			? state.commentsData.comments.filter(
+					(comment) => comment.commentId === ownProps.data.id
+			  )
+			: [],
 });
 
 export default connect(mapStateToProps)(Comment);

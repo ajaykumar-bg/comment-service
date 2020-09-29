@@ -48,48 +48,48 @@ export function saveCommentFailed(error) {
 
 // Load Reply Comments
 
-export function loadReplyComments() {
-	return {
-		type: types.LOAD_REPLY_COMMENTS,
-	};
-}
+// export function loadReplyComments() {
+// 	return {
+// 		type: types.LOAD_REPLY_COMMENTS,
+// 	};
+// }
 
-export function loadReplyCommentsSuccess(comments) {
-	return {
-		type: types.LOAD_REPLY_COMMENTS_SUCCESS,
-		payload: comments,
-	};
-}
+// export function loadReplyCommentsSuccess(comments) {
+// 	return {
+// 		type: types.LOAD_REPLY_COMMENTS_SUCCESS,
+// 		payload: comments,
+// 	};
+// }
 
-export function loadReplyCommentsFailed(error) {
-	return {
-		type: types.LOAD_REPLY_COMMENTS_FAILED,
-		payload: error,
-	};
-}
+// export function loadReplyCommentsFailed(error) {
+// 	return {
+// 		type: types.LOAD_REPLY_COMMENTS_FAILED,
+// 		payload: error,
+// 	};
+// }
 
 // Save Reply Comments
 
-export function saveReplyComment(comment) {
-	return {
-		type: types.SAVE_REPLY_COMMENT,
-		payload: comment,
-	};
-}
+// export function saveReplyComment(comment) {
+// 	return {
+// 		type: types.SAVE_REPLY_COMMENT,
+// 		payload: comment,
+// 	};
+// }
 
-export function saveReplyCommentSuccess(comment) {
-	return {
-		type: types.SAVE_REPLY_COMMENT_SUCCESS,
-		payload: comment,
-	};
-}
+// export function saveReplyCommentSuccess(comment) {
+// 	return {
+// 		type: types.SAVE_REPLY_COMMENT_SUCCESS,
+// 		payload: comment,
+// 	};
+// }
 
-export function saveReplyCommentFailed(error) {
-	return {
-		type: types.SAVE_REPLY_COMMENT_FAILED,
-		payload: error,
-	};
-}
+// export function saveReplyCommentFailed(error) {
+// 	return {
+// 		type: types.SAVE_REPLY_COMMENT_FAILED,
+// 		payload: error,
+// 	};
+// }
 
 export function getComments() {
 	return function (dispatch, getState) {
@@ -121,32 +121,32 @@ export function postComment(comment) {
 	};
 }
 
-export function getReplyComments() {
-	return function (dispatch, getState) {
-		dispatch(loadReplyComments());
-		return commentApi
-			.getReplyComments()
-			.then((comments) => {
-				dispatch(loadReplyCommentsSuccess(comments));
-			})
-			.catch((error) => {
-				dispatch(loadReplyCommentsFailed(error));
-				throw error;
-			});
-	};
-}
+// export function getReplyComments() {
+// 	return function (dispatch, getState) {
+// 		dispatch(loadReplyComments());
+// 		return commentApi
+// 			.getReplyComments()
+// 			.then((comments) => {
+// 				dispatch(loadReplyCommentsSuccess(comments));
+// 			})
+// 			.catch((error) => {
+// 				dispatch(loadReplyCommentsFailed(error));
+// 				throw error;
+// 			});
+// 	};
+// }
 
-export function postReplyComment(comment) {
-	return function (dispatch, getState) {
-		dispatch(saveReplyComment(comment));
-		return commentApi
-			.saveReplyComment(comment)
-			.then((result) => {
-				dispatch(saveReplyCommentSuccess(result));
-			})
-			.catch((error) => {
-				dispatch(saveReplyCommentFailed(error));
-				throw error;
-			});
-	};
-}
+// export function postReplyComment(comment) {
+// 	return function (dispatch, getState) {
+// 		dispatch(saveReplyComment(comment));
+// 		return commentApi
+// 			.saveReplyComment(comment)
+// 			.then((result) => {
+// 				dispatch(saveReplyCommentSuccess(result));
+// 			})
+// 			.catch((error) => {
+// 				dispatch(saveReplyCommentFailed(error));
+// 				throw error;
+// 			});
+// 	};
+// }

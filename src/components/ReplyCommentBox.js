@@ -21,7 +21,7 @@ class ReplyCommentBox extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.postReplyComment({
+		this.props.postComment({
 			content: this.state.content,
 			datetime: new Date(),
 			commentId: this.props.parentCommentId,

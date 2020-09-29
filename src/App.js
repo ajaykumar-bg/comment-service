@@ -1,4 +1,7 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './App.css';
 import { Container, Header } from 'semantic-ui-react';
 
@@ -11,6 +14,7 @@ function App() {
 				<Header>Comment as a Service</Header>
 				<CommentsPage />
 			</Container>
+			<ToastContainer autoClose={3000} hideProgressBar />
 		</div>
 	);
 }

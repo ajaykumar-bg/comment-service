@@ -16,14 +16,21 @@ export class CommentsPage extends Component {
 			<div>
 				<CurrentUser />
 				<CommentBox />
-				<CommentList comments={this.props.comments} />
+				{this.props.comments && this.props.comments.length > 0 ? (
+					<CommentList comments={this.props.comments} />
+				) : (
+					<p>Loading...</p>
+				)}
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = (state) => ({
-	comments: state.commentsData.comments,
+const mapStateToProps = (state, ownProps) => ({
+	comments:
+		state.commentsData.comments && state.commentsData.comments.length > 0
+			? state.commentsData.comments.filter((comment) => comment.commentId === 0)
+			: [],
 });
 
 export default connect(mapStateToProps, actions)(CommentsPage);
