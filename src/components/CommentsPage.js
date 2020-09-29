@@ -13,7 +13,8 @@ export class CommentsPage extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className=''>
+				<h2 className='ui header'>Comment as a Service</h2>
 				<CurrentUser />
 				<br />
 				<CommentBox />

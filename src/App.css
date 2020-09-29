@@ -1,3 +1,43 @@
+body {
+	height: auto;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	height: 100vh;
+	background-color: white;
+	color: black;
+	padding: 20px;
+	flex: 1 0 auto;
+}
+
+header,
+footer {
+	background-color: black;
+	color: white;
+	padding: 10px 20px;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.right-content {
+	font-size: 16px;
+	padding: 8px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.logo {
+	width: 40px;
+	height: 40px;
+}
+
 .ui.comments .comment .actions button {
 	cursor: pointer;
 	display: inline-block;
@@ -10,8 +50,4 @@
 .ui.comments .comment .author {
 	cursor: pointer;
 	color: #2185d0 !important;
-}
-
-.mt-3 {
-	marging-top: 3 rem;
 }
