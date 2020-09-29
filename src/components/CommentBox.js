@@ -40,16 +40,17 @@ class CommentBox extends Component {
 	render() {
 		return (
 			<form className='ui comment form' onSubmit={this.handleSubmit}>
-				<div className='field'>
-					<textarea
-						rows='3'
+				<div className='ui action input'>
+					<input
+						type='text'
+						placeholder='Comment...'
 						value={this.state.content}
 						onChange={this.handleChange}
-					></textarea>
+					/>
+					<button type='submit' className='ui button'>
+						Post a new Comment
+					</button>
 				</div>
-				<button type='submit' className='ui icon primary left labeled button'>
-					<i aria-hidden='true' className='edit icon'></i>Post a new Comment
-				</button>
 			</form>
 		);
 	}
