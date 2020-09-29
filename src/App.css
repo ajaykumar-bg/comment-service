@@ -1,0 +1,8 @@
+.ui.comments .comment .actions button {
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 0.75em 0 0;
+	background-color: transparent;
+	color: rgba(0, 0, 0, 0.4);
+	padding: 0;
+}

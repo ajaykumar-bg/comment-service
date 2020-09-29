@@ -23,23 +23,22 @@ function Comment({ data, replyComments, userData }) {
 				<div className='text'>{content}</div>
 				<div className='actions'>
 					{replyComments.length > 0 ? (
-						<a
-							className=''
+						<button
+							className='ui button'
 							onClick={() =>
 								setReplyCommentsVisibility(!replyCommentsVisibility)
 							}
 						>
-							<span>{replyCommentsVisibility ? 'Hide' : 'Show'}</span> Comments(
-							{replyComments.length})
-						</a>
+							<span>{replyCommentsVisibility ? 'Hide' : 'Show'}</span> Comments
+						</button>
 					) : null}
 
-					<a
-						className=''
+					<button
+						className='ui button'
 						onClick={() => setReplyBoxVisibility(!replyBoxVisibility)}
 					>
 						Reply
-					</a>
+					</button>
 				</div>
 				{replyCommentsVisibility &&
 				replyComments &&
