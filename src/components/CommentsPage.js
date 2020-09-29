@@ -18,15 +18,14 @@ export class CommentsPage extends Component {
 				<CommentBox />
 				{this.props.comments && this.props.comments.length > 0 ? (
 					<CommentList comments={this.props.comments} />
-				) : (
-					<p>Loading...</p>
-				)}
+				) : null}
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = (state, ownProps) => ({
+	loading: state.commentsData.loading,
 	comments:
 		state.commentsData.comments && state.commentsData.comments.length > 0
 			? state.commentsData.comments.filter((comment) => comment.commentId === 0)
