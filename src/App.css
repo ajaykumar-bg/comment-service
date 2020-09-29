@@ -6,3 +6,8 @@
 	color: rgba(0, 0, 0, 0.4);
 	padding: 0;
 }
+
+.ui.comments .comment .author {
+	cursor: pointer;
+	color: #2185d0 !important;
+}
