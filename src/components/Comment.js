@@ -6,7 +6,7 @@ import ReplyCommentBox from './ReplyCommentBox';
 import CommentList from './CommentList';
 
 function Comment({ data, replyComments, userData }) {
-	const [replyCommentsVisibility, setReplyCommentsVisibility] = useState(false);
+	const [replyCommentsVisibility, setReplyCommentsVisibility] = useState(true);
 	const [replyBoxVisibility, setReplyBoxVisibility] = useState(false);
 	const { id, content, datetime } = data;
 
