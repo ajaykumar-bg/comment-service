@@ -15,6 +15,7 @@ export class CommentsPage extends Component {
 		return (
 			<div>
 				<CurrentUser />
+				<br />
 				<CommentBox />
 				{this.props.comments && this.props.comments.length > 0 ? (
 					<CommentList comments={this.props.comments} />

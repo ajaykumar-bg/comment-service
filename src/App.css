@@ -11,3 +11,7 @@
 	cursor: pointer;
 	color: #2185d0 !important;
 }
+
+.mt-3 {
+	marging-top: 3 rem;
+}

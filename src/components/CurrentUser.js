@@ -26,7 +26,7 @@ class CurrentUser extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} className='mt-3'>
 				<div className='ui icon input'>
 					<input
 						type='text'
